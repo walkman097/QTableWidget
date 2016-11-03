@@ -35,6 +35,7 @@ int Table::CONTENT = Qt::UserRole + 3;
 
 		initModel();
 		layout->addWidget(listView);
+		resize(400, 600);
 	}
 
 	void Table::initModel()
@@ -99,7 +100,7 @@ int Table::CONTENT = Qt::UserRole + 3;
 		painter->drawLine(x + margin, y + h - 2, x + w - margin, y + h - 2);
 		
 		// \ line
-		painter->drawLine(x, y, x + w, y + h);
+		//painter->drawLine(x, y, x + w, y + h);
 
 		//>
 		int lineY = y + h/2;
@@ -112,7 +113,8 @@ int Table::CONTENT = Qt::UserRole + 3;
 		QFontMetrics fm(font);
 		painter->drawText(x + margin*2, y + 5, x + w - margin, fm.height(), Qt::AlignLeft | Qt::AlignVCenter, title);
 		//content
-		painter->drawText(x + margin*2, y + fm.height() + 10, x + w - margin, fm.height(), Qt::AlignLeft | Qt::AlignVCenter, content);
+		painter->drawText(x + margin*2, y + h - fm.height() - 10, x + w - margin, fm.height(), Qt::AlignLeft | Qt::AlignVCenter, content);
 
 	}
+
 
